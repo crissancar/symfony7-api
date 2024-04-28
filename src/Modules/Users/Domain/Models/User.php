@@ -72,4 +72,9 @@ class User
     {
         $this->updatedAt = new DateTime();
     }
+
+    public function getRoles(): array
+    {
+        return [];
+    }
 }

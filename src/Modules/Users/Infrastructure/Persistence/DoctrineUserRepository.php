@@ -8,14 +8,18 @@ use App\Modules\Users\Domain\Repositories\UserRepository;
 
 class DoctrineUserRepository extends DoctrineRepository implements UserRepository
 {
-
     public function save(User $user): void
     {
         $this->persist($user);
     }
 
-    public function find(string $id): ?User
+    public function findById(string $id): ?User
     {
         return $this->repository(User::class)->find($id);
+    }
+
+    public function findByEmail(string $email): ?User
+    {
+        return $this->repository(User::class)->findOneBy(['email' => $email]);
     }
 }

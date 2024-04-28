@@ -12,7 +12,7 @@ final class UserFinder
 
     public function __invoke(string $id): User
     {
-        $foundUser = $this->repository->find($id);
+        $foundUser = $this->repository->findById($id);
 
         if(!$foundUser){
             throw new UserNotExistsException($id);
