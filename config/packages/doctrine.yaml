@@ -16,12 +16,12 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            App:
-                type: attribute
+            User:
+                type: xml
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+                dir: '%kernel.project_dir%/src/Modules/Users/Infrastructure/Persistence/Doctrine'
+                prefix: 'App\Modules\Users\Domain\Models'
+                alias: User
         controller_resolver:
             auto_mapping: true
 
