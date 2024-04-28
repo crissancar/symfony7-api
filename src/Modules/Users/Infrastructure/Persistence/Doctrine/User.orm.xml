@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="App\Modules\Users\Domain\Models\User" table="user">
+        <id name="id" type="uuid" />
+        <field name="name" column="name" length="100" />
+        <field name="email" column="email" length="100" unique="true" />
+        <field name="password" column="password" length="100" />
+        <field name="createdAt" type="datetime" column="created_at" />
+        <field name="updatedAt" type="datetime" column="updated_at" />
+        <indexes>
+            <index name="IDX_USER_EMAIL" columns="email" />
+        </indexes>
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="updateTimestamps"/>
+            <lifecycle-callback type="preUpdate" method="updateTimestamps"/>
+        </lifecycle-callbacks>
+    </entity>
+</doctrine-mapping>
