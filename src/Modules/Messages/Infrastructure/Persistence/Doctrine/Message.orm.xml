@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="App\Modules\Messages\Domain\Models\Message" table="message">
+        <id name="id" type="uuid" />
+        <field name="eventId" column="eventId" length="100" unique="true" />
+        <field name="eventName" column="eventName" length="100" />
+        <field name="attributes" type="json" column="attributes" />
+        <field name="createdAt" type="datetime" column="created_at" />
+        <field name="updatedAt" type="datetime" column="updated_at" />
+    </entity>
+</doctrine-mapping>
