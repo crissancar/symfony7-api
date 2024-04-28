@@ -10,19 +10,46 @@ class UserCreatedDomainEvent
 {
     private string $eventId;
 
+    private string $eventName;
+
     private DateTime $occurred_on;
 
-    private object $attributes;
+    private string $attributes;
 
-    public function __construct(object $attributes)
+    public function __construct(User $user)
     {
         $this->eventId = Uuid::generate();
+        $this->eventName = 'user.created';
         $this->occurred_on = new DateTime();
-        $this->attributes = $attributes;
+        $this->attributes = $this->serializeAttributes($user);
     }
 
     public static function create(User $user): self
     {
         return new self($user);
+    }
+
+    public function getEventId(): string
+    {
+        return $this->eventId;
+    }
+
+    public function getEventName(): string
+    {
+        return $this->eventName;
+    }
+
+    public function getAttributes(): string
+    {
+        return $this->attributes;
+    }
+
+    private function serializeAttributes(User $user): string
+    {
+        return json_encode([
+            'id' => $user->getId(),
+            'name' => $user->getName(),
+            'email' => $user->getEmail(),
+        ], JSON_THROW_ON_ERROR);
     }
 }
