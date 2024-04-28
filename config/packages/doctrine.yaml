@@ -22,6 +22,12 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Modules/Users/Infrastructure/Persistence/Doctrine'
                 prefix: 'App\Modules\Users\Domain\Models'
                 alias: User
+            Message:
+                type: xml
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Modules/Messages/Infrastructure/Persistence/Doctrine'
+                prefix: 'App\Modules\Messages\Domain\Models'
+                alias: Message
         controller_resolver:
             auto_mapping: true
 
