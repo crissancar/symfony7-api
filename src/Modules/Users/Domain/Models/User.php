@@ -53,6 +53,16 @@ class User
         return $this->password;
     }
 
+    public function getCreatedAt(): DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function getUpdatedAt(): DateTime
+    {
+        return $this->updatedAt;
+    }
+
     public function updatePassword(string $hashedPassword): void
     {
         $this->password = $hashedPassword;

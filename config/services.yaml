@@ -12,9 +12,15 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    ## Users
     App\Modules\Users\Infrastructure\Controllers\UserPostController:
         public: true
         tags: ['controller.service_arguments']
 
+    App\Modules\Users\Infrastructure\Controllers\UserGetController:
+        public: true
+        tags: [ 'controller.service_arguments' ]
+
+    ## Messages
     App\Modules\Messages\Application\Services\UserCreatedMessageCreator:
         tags: [messenger.message_handler]
